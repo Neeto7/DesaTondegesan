@@ -19,7 +19,7 @@ const imageAnim = {
     opacity: 1,
     scale: 1,
     rotate: 0,
-    transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } // Cinematic
+    transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } 
   }
 };
 

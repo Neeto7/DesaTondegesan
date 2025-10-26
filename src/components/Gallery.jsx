@@ -15,7 +15,7 @@ const baseImages = [
   "/gallery/galeri4.jpg",
 ];
 
-// ✅ Duplicate untuk loop fix tanpa error
+
 const images = [...baseImages, ...baseImages];
 
 const Gallery = () => {

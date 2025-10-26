@@ -14,7 +14,7 @@ const VideoBackground = ({ src }) => {
         video.currentTime = 0;
         video.play();
         video.style.opacity = "1";
-      }, 300); // durasi bisa kamu sesuaikan
+      }, 300); 
     };
 
     video.addEventListener("ended", handleLoopFade);
