@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 
@@ -13,15 +13,25 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-[#3A231B] text-white py-4 shadow-lg z-50">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6">
+    <nav className="fixed top-0 left-0 w-full bg-[#3A231B] text-white py-3 shadow-lg z-50">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 gap-3">
 
-        {/* Nama Desa */}
+        {/* Logo + Nama Desa */}
         <button
           onClick={() => handleScroll("profile-section")}
-          className="text-xl font-semibold uppercase tracking-wide"
+          className="flex items-center gap-3"
         >
-          Desa Tondegesan Satu
+          <Image
+            src="/icon.png"
+            width={45}
+            height={45}
+            alt="Logo Desa"
+            className="object-cover"
+            priority
+          />
+          <span className="text-lg font-semibold uppercase tracking-wide whitespace-nowrap">
+            Desa Tondegesan Satu
+          </span>
         </button>
 
         {/* Desktop Menu */}

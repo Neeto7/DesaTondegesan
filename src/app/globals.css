@@ -6,6 +6,7 @@
 
 
 :root {
+   font-family: var(--font-montserrat), sans-serif;
   --base-bg: #EBE6DA;
 }
 
