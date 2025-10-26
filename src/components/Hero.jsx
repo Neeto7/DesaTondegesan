@@ -28,7 +28,7 @@ const Hero = () => {
           Desa Tondegesan satu
         </h1>
         <p className="text-sm md:text-lg mb-6">
-          Dengan Mapalus Kita Wujudkan Desa Tondegesan satu Yang Mandiri
+          Dengan Mapalus Kita Wujudkan Desa Tondegesan Satu Yang Mandiri
         </p>
         <button
           onClick={handleScrollToProfile}
