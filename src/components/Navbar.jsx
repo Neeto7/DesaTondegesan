@@ -52,7 +52,7 @@ const Navbar = () => {
 
       {/* Mobile Menu Dropdown */}
       {isOpen && (
-        <ul className="md:hidden bg-[#3A231B] text-sm flex flex-col px-6 pb-6 gap-6 mt-16 animate-slideDown">
+        <ul className="md:hidden bg-[#3A231B] text-sm flex flex-col px-6 pb-6 gap-6 mt-6 animate-slideDown">
           <li><button onClick={() => handleScroll("profile-section")} className="hover:text-gray-300">Profil Desa</button></li>
           <li><button onClick={() => handleScroll("geografi-section")} className="hover:text-gray-300">Geografis</button></li>
           <li><button onClick={() => handleScroll("sejarah-section")} className="hover:text-gray-300">Sejarah</button></li>
