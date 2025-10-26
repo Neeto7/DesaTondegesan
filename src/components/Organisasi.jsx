@@ -1,20 +1,58 @@
 "use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
+
+const slideZoom = {
+  hidden: { opacity: 0, y: 80, scale: 0.95, filter: "blur(8px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    filter: "blur(0px)",
+    transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] }
+  }
+};
+
+const child = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: 0.15 * i, duration: 0.6 }
+  })
+};
 
 const Organisasi = () => {
   return (
-    <section className="w-full py-20 px-6 md:px-12 lg:px-24">
-      <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl p-8 md:p-12 text-[#374221]">
-
+    <section
+      id="organisasi-section"
+      className="w-full py-20 px-6 md:px-12 lg:px-24 overflow-hidden"
+    >
+      <motion.div
+        className="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl p-8 md:p-12 text-[#374221]"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={slideZoom}
+      >
+        
         {/* Title */}
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
+        <motion.h2
+          variants={child}
+          custom={0}
+          className="text-3xl md:text-4xl font-bold text-center mb-10"
+        >
           Struktur Organisasi &<br />Visi Misi Kepala Desa
-        </h2>
+        </motion.h2>
 
-        {/* Foto & Kepala Desa */}
-        <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10 mb-12">
-          {/* Foto Placeholder */}
-          <div className="w-[110px] h-[145px] bg-gray-300 rounded-md overflow-hidden relative">
+
+        {/* Profil Kepala Desa */}
+        <motion.div
+          variants={child}
+          custom={1}
+          className="flex flex-col md:flex-row items-center gap-6 md:gap-10 mb-12"
+        >
+          <div className="w-[110px] h-[145px] bg-gray-300 rounded-md overflow-hidden relative shadow-sm">
             <Image
               src="/kepala-desa.jpg"
               alt="Kepala Desa"
@@ -24,19 +62,27 @@ const Organisasi = () => {
             />
           </div>
 
-          {/* Nama Jabatan */}
           <div className="text-center md:text-left">
             <p className="text-xl font-bold">Kepala Desa</p>
-            <p className="text-lg mt-1">Mimbri Pontoh</p>
+            <p className="text-lg mt-1">Mimbri Marsel Pontoh</p>
           </div>
-        </div>
+        </motion.div>
+
 
         {/* Struktur Organisasi */}
-        <h3 className="text-xl font-semibold mb-4 border-l-4 border-[#889966] pl-3">
+        <motion.h3
+          variants={child}
+          custom={2}
+          className="text-xl font-semibold mb-4 border-l-4 border-[#889966] pl-3"
+        >
           Struktur Organisasi
-        </h3>
+        </motion.h3>
 
-        <div className="grid md:grid-cols-2 gap-6 text-base leading-tight">
+        <motion.div
+          variants={child}
+          custom={3}
+          className="grid md:grid-cols-2 gap-6 text-base leading-tight"
+        >
           <div>
             <p><strong>Sekretaris Desa:</strong> Mareska E. Kalengkongan</p>
             <p><strong>Kasi Pembangunan:</strong> Jerry J. Kalengkongan</p>
@@ -58,10 +104,15 @@ const Organisasi = () => {
             <p className="mt-3"><strong>Kepala Jaga Empat:</strong> Frans Najoan</p>
             <p className="ml-4">Meweteng: Tirsani N. Kumajas</p>
           </div>
-        </div>
+        </motion.div>
+
 
         {/* Visi Misi */}
-        <div className="mt-12">
+        <motion.div
+          variants={child}
+          custom={4}
+          className="mt-12"
+        >
           <h3 className="text-xl font-semibold mb-4 border-l-4 border-[#889966] pl-3">
             Visi
           </h3>
@@ -85,9 +136,9 @@ const Organisasi = () => {
             <li>Mengembangkan prioritas mutu pendidikan dan pelayanan kesehatan ibu hamil</li>
             <li>Mengadakan sarana dan prasarana penunjang bagi generasi muda desa yang mandiri</li>
           </ul>
-        </div>
+        </motion.div>
 
-      </div>
+      </motion.div>
     </section>
   );
 };

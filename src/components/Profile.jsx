@@ -1,48 +1,98 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import { motion } from "framer-motion";
+
+// Cinematic parent container (trigger + stagger)
+const containerVariant = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.25,
+      ease: "easeOut",
+    },
+  },
+};
+
+// Smooth fade + slide + blur
+const itemVariant = {
+  hidden: { opacity: 0, y: 40, filter: "blur(6px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
 
 const Profile = () => {
   const [showMore, setShowMore] = useState(false);
 
   return (
-    <section className="w-full py-20 px-6 md:px-16 lg:px-28">
+    <motion.section
+      id="profile-section"
+      className="w-full py-20 px-6 md:px-16 lg:px-28"
+      variants={containerVariant}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+    >
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-        {/* Left Image */}
-        <div className="relative w-full h-[300px] md:h-[450px] rounded-lg overflow-hidden shadow-md">
+        {/* Image */}
+        <motion.div
+          className="relative w-full h-[300px] md:h-[450px] rounded-lg overflow-hidden shadow-md"
+          variants={itemVariant}
+        >
           <Image
-            src="/desa.jpg"
+            src="/desa1.jpg"
             alt="Lanskap Desa Tondegesan"
             fill
             className="object-cover"
-            priority
           />
-        </div>
+        </motion.div>
 
-        {/* Right Content */}
-        <div className="text-[#374221]">
-          <h2 className="text-3xl md:text-5xl font-bold leading-tight">
+        {/* Text Area */}
+        <motion.div className="text-[#374221] space-y-4" variants={containerVariant}>
+          
+          <motion.h2
+            variants={itemVariant}
+            className="text-3xl md:text-5xl font-bold leading-tight"
+          >
             Profil <br /> Singkat Desa
-          </h2>
+          </motion.h2>
 
-          <div className="w-24 h-[3px] bg-[#B89F5B] mt-4 mb-5 rounded-full"></div>
+          <motion.div
+            variants={itemVariant}
+            className="w-24 h-[3px] bg-[#B89F5B] rounded-full"
+          />
 
-          <h3 className="text-lg md:text-xl font-semibold mb-4">
+          <motion.h3
+            variants={itemVariant}
+            className="text-lg md:text-xl font-semibold"
+          >
             Tondegesan Satu
-          </h3>
+          </motion.h3>
 
           {/* Short Text */}
-          <p className="text-sm md:text-base leading-relaxed">
+          <motion.p
+            variants={itemVariant}
+            className="text-sm md:text-base leading-relaxed"
+          >
             Desa Tondegesan Satu terletak di Kecamatan Kawangkoan, Kabupaten
             Minahasa, Provinsi Sulawesi Utara. Perekonomian desa ini berfokus
             pada sektor pertanian hortikultura seperti tomat, jagung, kacang-kacangan,
             dan sayuran dataran tinggi.
-          </p>
+          </motion.p>
 
           {/* Expandable Text */}
           {showMore && (
-            <p className="text-sm md:text-base leading-relaxed mt-3 transition-all duration-300">
+            <motion.p
+              initial="hidden"
+              animate="visible"
+              variants={itemVariant}
+              className="text-sm md:text-base leading-relaxed"
+            >
               Aktivitas ekonomi desa didominasi usaha pertanian skala kecil hingga
               menengah, dengan distribusi hasil pertanian ke wilayah Minahasa dan sekitarnya.
               <br /><br />
@@ -54,20 +104,21 @@ const Profile = () => {
               fasilitas ibadah, dan kantor desa sebagai pusat kegiatan sosial-ekonomi.
               Desa Tondegesan Satu juga membangun kerja sama dengan desa-desa tetangga
               di Kecamatan Kawangkoan dalam berbagai program pembangunan.
-            </p>
+            </motion.p>
           )}
 
-          {/* Toggle Button */}
-          <button
+          {/* Button */}
+          <motion.button
+            variants={itemVariant}
             onClick={() => setShowMore(!showMore)}
-            className="mt-4 text-sm font-semibold text-[#446622] hover:underline transition"
+            className="text-sm font-semibold text-[#446622] hover:underline transition"
           >
             {showMore ? "Sembunyikan" : "Baca Selengkapnya"}
-          </button>
+          </motion.button>
 
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

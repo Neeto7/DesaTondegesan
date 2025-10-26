@@ -1,4 +1,9 @@
 @import "tailwindcss";
+@import "swiper/css";
+@import "swiper/css/effect-coverflow";
+@import "swiper/css/pagination";
+@import "swiper/css/navigation";
+
 
 :root {
   --base-bg: #EBE6DA;
@@ -7,4 +12,8 @@
 html, body {
   background-color: var(--base-bg);
   color: #000; /* optional, biar teks tetap terbaca */
+}
+
+html {
+  scroll-behavior: smooth;
 }
