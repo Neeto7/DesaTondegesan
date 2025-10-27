@@ -29,9 +29,10 @@ const Navbar = () => {
             className="object-cover"
             priority
           />
-          <span className="text-lg font-semibold uppercase tracking-wide whitespace-nowrap">
-            Desa Tondegesan Satu
-          </span>
+         <span className="text-sm sm:text-lg font-semibold uppercase tracking-wide whitespace-nowrap">
+          Desa Tondegesan Satu
+        </span>
+
         </button>
 
         {/* Desktop Menu */}
