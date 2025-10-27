@@ -6,13 +6,13 @@
 
 
 :root {
-   font-family: var(--font-montserrat), sans-serif;
+  font-family: var(--font-roboto), sans-serif;
   --base-bg: #EBE6DA;
 }
 
 html, body {
   background-color: var(--base-bg);
-  color: #000; /* optional, biar teks tetap terbaca */
+  color: #000; 
 }
 
 html {

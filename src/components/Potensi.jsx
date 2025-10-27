@@ -14,8 +14,9 @@ const Potensi = () => {
           <div className="w-24 h-[3px] bg-[#B89F5B] mt-4 mb-6 rounded-full"></div>
 
           <p className="text-sm md:text-base leading-relaxed">
-            Desa Tondegesan Satu berada dalam wilayah dataran tinggi Minahasa
-            dengan lahan kering dan non-sawah yang luas...
+            Potensi Desa dan Galeri kumpulan foto kegiatan atau keindahan desa
+            Desa Tondegesan Satu berada dalam wilayah dataran tinggi Minahasa dengan lahan kering dan non-sawah yang luas, menjadikannya basis utama aktivitas pertanian. Komoditas unggulan berpotensi berupa sayuran dan tanaman hortikultura seperti tomat, jagung, kacang-kacangan, serta sayuran dataran tinggi lainnya, yang dapat didorong melalui peningkatan akses bibit unggul, pupuk, dan teknik budidaya modern.
+
           </p>
 
           {/* Scroll to Gallery */}
